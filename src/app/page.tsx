@@ -1,5 +1,8 @@
+import Testimonial from "@/components/Testimonial";
+import { Icons } from "@/components/shared/Icons";
 import MaxWidthWrapper from "@/components/shared/MaxWidthWrapper";
 import Phone from "@/components/shared/Phone";
+import Stars from "@/components/shared/Stars";
 import { clientImages, featuresList } from "@/lib/data";
 import { Check, Star } from "lucide-react";
 import Image from "next/image";
@@ -53,12 +56,8 @@ export default function Home() {
                 <div className="flex -space-x-4">{imagesList}</div>
 
                 <div className="flex flex-col justify-between items-center sm:items-start">
-                  <div className="flex gap-0.5">
-                    <Star className="h-4 w-4 text-green-600 fill-green-600" />
-                    <Star className="h-4 w-4 text-green-600 fill-green-600" />
-                    <Star className="h-4 w-4 text-green-600 fill-green-600" />
-                    <Star className="h-4 w-4 text-green-600 fill-green-600" />
-                    <Star className="h-4 w-4 text-green-600 fill-green-600" />
+                  <div className="flex flex-row gap-0.5">
+                    <Stars amount={5} />
                   </div>
 
                   <p>
@@ -71,21 +70,25 @@ export default function Home() {
 
           <div className="col-span-full lg:col-span-1 w-full flex justify-center px-8 sm:px-16 md:px-0 mt-32 lg:mx-0 lg:mt-20 h-fit">
             <div className="relative md:max-w-xl">
-              <img
-                alt="Your image"
-                src="/your-image.png"
-                className="absolute w-40 lg:w-52 left-56 -top-20 select-none hidden sm:block lg:hidden xl:block"
-              />
-              <img
-                alt="line"
-                src="/line.png"
-                className="absolute w-20 -left-6 -bottom-6 select-none"
-              />
+              <div className="w-40 lg:w-52 h-40 lg:h-40 absolute  left-56 -top-20 select-none hidden sm:block lg:hidden xl:block">
+                <Image
+                  fill
+                  alt="Your image"
+                  src="/your-image.png"
+                  className=""
+                />
+              </div>
+              <div className="absolute w-20 h-40 -left-6 -bottom-6 select-none">
+                <Image fill alt="line" src="/line.png" />
+              </div>
               <Phone className="w-64" imgSrc="/testimonials/1.jpg" />
             </div>
           </div>
         </MaxWidthWrapper>
       </section>
+
+      {/* value proposition*/}
+      <Testimonial />
     </main>
   );
 }
